@@ -1,0 +1,32 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+ax = plt.axes()
+arrows = []
+x = 10
+y = 9
+xmin = x
+xmax = x
+ymin = y
+ymax = y
+for i in range(1,10):
+    dx = 0.5*x + y -x
+    dy = 0.5*y -y
+    ax.arrow(x, y, dx, dy, head_width=0.05, head_length=0.1, fc='k', ec='k')
+    x = 0.5*x + y
+    y = 0.5*y
+    if x < xmin:
+       xmin = x
+    if x > xmax:
+       xmax = x
+    if y < ymin:
+       ymin = y
+    if y > ymax:
+       ymax = y
+    print(x, y)
+plt.xlim(xmin-1,xmax+1)
+plt.ylim(ymin-1,ymax+1)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.show()
+plt.savefig('temp3.png')
